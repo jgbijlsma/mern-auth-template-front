@@ -18,13 +18,124 @@ ul {
   list-style: none;
 }
 
-button {
+button,
+input[type="submit"] {
   border: none;
   background: none;
+  color: unset;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin: 1em 0;
 }
 
 /* general */
 
 body {
   font-family: "Roboto", sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.page {
+  padding: 1rem;
+}
+
+/* header */
+
+.header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ca1d1d;
+  color: #ffffff;
+}
+.header .title {
+  margin: 0;
+  padding: 0 1rem;
+}
+.header .auth-options {
+  height: 100%;
+}
+.header .auth-options button {
+  padding: 0 1rem;
+  height: 100%;
+  background-color: #9c1717;
+  font-size: 1.1rem;
+}
+.header .auth-options button:hover {
+  background-color: #df2727;
+}
+
+/* forms */
+
+.form input,
+.form label {
+  display: block;
+}
+
+.form input {
+  margin-bottom: 1rem;
+}
+
+.form label {
+  margin-bottom: 0.5rem;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"] {
+  width: 100%;
+  padding: 0.4rem;
+  border: 1px solid #c7c7c7;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  font-size: 1.1rem;
+}
+.form input:focus {
+  border: 1px solid #4278cf;
+  box-shadow: inset 0px 0px 7px rgb(66, 120, 207, 0.5);
+  outline: none;
+}
+
+.form input[type="submit"] {
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  height: 100%;
+  background-color: #378f15;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+/* error notice */
+
+.errorNotice {
+  margin: 1rem 0;
+  border: 1px solid #e9a4a4;
+  border-radius: 8px;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fbdada;
+}
+.errorNotice button {
+  width: 20px;
+  height: 20px;
+  border-radius: 8px;
+  background-color: #ca1d1d;
+  color: #ffffff;
 }
