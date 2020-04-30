@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import UserContext from "../../context/UserContext";
 import Axios from "axios";
-import { UserContext } from "../../context/userContext";
 import ErrorNotice from "../misc/ErrorNotice";
 
 export default function Register() {
@@ -9,7 +9,7 @@ export default function Register() {
   const [password, setPassword] = useState();
   const [passwordCheck, setPasswordCheck] = useState();
   const [displayName, setDisplayName] = useState();
-  const [error, setError] = useState("");
+  const [error, setError] = useState();
 
   const { setUserData } = useContext(UserContext);
   const history = useHistory();
@@ -36,10 +36,12 @@ export default function Register() {
   };
 
   return (
-    <div className="page form">
+    <div className="page">
       <h2>Register</h2>
-      {error && <ErrorNotice error={error} clearError={() => setError("")} />}
-      <form onSubmit={submit}>
+      {error && (
+        <ErrorNotice message={error} clearError={() => setError(undefined)} />
+      )}
+      <form className="form" onSubmit={submit}>
         <label htmlFor="register-email">Email</label>
         <input
           id="register-email"
@@ -55,13 +57,13 @@ export default function Register() {
         />
         <input
           type="password"
-          placeholder="Confirm password"
+          placeholder="Verify password"
           onChange={(e) => setPasswordCheck(e.target.value)}
         />
 
-        <label htmlFor="register-displayName">Display name</label>
+        <label htmlFor="register-display-name">Display name</label>
         <input
-          id="register-displayName"
+          id="register-display-name"
           type="text"
           onChange={(e) => setDisplayName(e.target.value)}
         />
