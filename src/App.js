@@ -22,19 +22,21 @@ export default function App() {
         localStorage.setItem("auth-token", "");
         token = "";
       }
-      const tokenRes = await Axios.post(
-        "http://localhost:5000/users/tokenIsValid",
-        null,
-        { headers: { "x-auth-token": token } }
-      );
-      if (tokenRes.data) {
-        const userRes = await Axios.get("http://localhost:5000/users/", {
-          headers: { "x-auth-token": token },
-        });
-        setUserData({
-          token,
-          user: userRes.data,
-        });
+      else{
+        const tokenRes = await Axios.post(
+          "http://localhost:5000/users/tokenIsValid",
+          null,
+          { headers: { "x-auth-token": token } }
+        );
+        if (tokenRes.data) {
+          const userRes = await Axios.get("http://localhost:5000/users/", {
+            headers: { "x-auth-token": token },
+          });
+          setUserData({
+            token,
+            user: userRes.data,
+          });
+        }
       }
     };
 
